@@ -1,1 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌈 Crazy Friendship Day Celebration! 🎉</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><text y="16" font-size="16">💖</text></svg>'), auto;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: bounceIn 2s ease-out;
+        }
+        
+        .main-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(3rem, 8vw, 8rem);
+            background: linear-gradient(45deg, #ff1744, #e91e63, #9c27b0, #673ab7, #3f51b5, #2196f3, #00bcd4, #009688, #4caf50, #8bc34a, #cddc39, #ffeb3b, #ffc107, #ff9800, #ff5722);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 3s linear infinite, wobble 4s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+        
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        
+        @keyframes wobble {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(2deg) scale(1.05); }
+            75% { transform: rotate(-2deg) scale(0.95); }
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+            100% { transform: scale(1) rotate(360deg); opacity: 1; }
+        }
+        
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 2s ease-in-out infinite;
+            font-weight: 600;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .friend-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            padding: 0 20px;
+        }
+        
+        .friend-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+        
+        .friend-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            border-radius: 25px;
+            z-index: -1;
+            animation: borderRotate 4s linear infinite;
+        }
+        
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .friend-card:hover {
+            transform: translateY(-20px) rotate(5deg) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+        
+        .friend-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        .friend-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .friend-card p {
+            color: #666;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .celebration-button {
+            display: block;
+            margin: 50px auto;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .celebration-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .celebration-button:hover::before {
+            left: 100%;
+        }
+        
+        .celebration-button:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .celebration-button:active {
+            transform: scale(0.95);
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #ff1744;
+            font-size: 2rem;
+            animation: floatUp 3s ease-out forwards;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            animation: confettiFall 3s ease-out forwards;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .message-area {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .message-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .message-input:focus {
+            outline: none;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            color: #ffd700;
+            font-size: 1.5rem;
+            animation: sparkleAnim 2s ease-out forwards;
+            z-index: 1000;
+        }
+        
+        @keyframes sparkleAnim {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5) rotate(180deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .friendship-quote {
+            font-style: italic;
+            font-size: 1.3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .message-display {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            z-index: 10000;
+            max-width: 90vw;
+            width: 500px;
+            border: 5px solid white;
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+        
+        @keyframes popIn {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1) rotate(360deg);
+                opacity: 1;
+            }
+        }
+        
+        .message-display h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 10px rgba(255,255,255,0.5); }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.8); }
+        }
+        
+        .user-message {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+            animation: messageGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes messageGlow {
+            0%, 100% { box-shadow: inset 0 2px 10px rgba(0,0,0,0.1), 0 0 0 rgba(255,107,107,0); }
+            50% { box-shadow: inset 0 2px 10px rgba(0,0,0,0.1), 0 0 20px rgba(255,107,107,0.5); }
+        }
+        
+        .close-button {
+            background: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+        
+        .close-button:hover {
+            transform: scale(1.1);
+            background: #f0f0f0;
+        }
+        
+        .friendship-celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: fireworkExplode 2s ease-out forwards;
+        }
+        
+        @keyframes fireworkExplode {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(20);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(40);
+                opacity: 0;
+            }
+        }
+        
+        .floating-message {
+            position: fixed;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            pointer-events: none;
+            z-index: 9998;
+            animation: floatMessage 4s ease-out forwards;
+        }
+        
+        @keyframes floatMessage {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+            20% {
+                transform: translateY(-20px) scale(1.2);
+                opacity: 1;
+            }
+            80% {
+                transform: translateY(-100px) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-150px) scale(0.8);
+                opacity: 0;
+            }
+        }
+        
+        .thank-you-animation {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            pointer-events: none;
+            z-index: 9997;
+            animation: thankYouBounce 3s ease-out forwards;
+        }
+        
+        @keyframes thankYouBounce {
+            0% {
+                transform: translateX(-50%) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            30% {
+                transform: translateX(-50%) scale(1.3) rotate(10deg);
+                opacity: 1;
+            }
+            60% {
+                transform: translateX(-50%) scale(1) rotate(-5deg);
+                opacity: 1;
+            }
+            80% {
+                transform: translateX(-50%) scale(1.1) rotate(2deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .friend-cards {
+                grid-template-columns: 1fr;
+                padding: 0 10px;
+            }
+            
+            .celebration-button {
+                font-size: 1.2rem;
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">FRIENDSHIP DAY!</h1>
+            <p class="subtitle">🎉 Celebrating the Magic of True Friendship! 🎉</p>
+            <div class="friendship-quote">
+                "A true friend is someone who thinks you're a good egg even though you're slightly cracked!" 🥚✨
+            </div>
+        </header>
+        
+        <section class="friend-cards">
+            <div class="friend-card">
+                <div class="friend-emoji">👯‍♀️</div>
+                <h3>Dance Partners</h3>
+                <p>Those friends who dance with you through life's crazy moments, making every step an adventure!</p>
+            </div>
+            
+            <div class="friend-card">
+                <div class="friend-emoji">🤗</div>
+                <h3>Hug Experts</h3>
+                <p>The ones who give the best hugs and know exactly when you need them most. Virtual hugs count too!</p>
+            </div>
+            
+            <div class="friend-card">
+                <div class="friend-emoji">🎭</div>
+                <h3>Comedy Duo</h3>
+                <p>Friends who laugh at your terrible jokes and make even the worst days feel like a comedy show!</p>
+            </div>
+            
+            <div class="friend-card">
+                <div class="friend-emoji">🌟</div>
+                <h3>Cheerleaders</h3>
+                <p>Your personal fan club who believe in your dreams even when you forget to believe in yourself!</p>
+            </div>
+            
+            <div class="friend-card">
+                <div class="friend-emoji">🍕</div>
+                <h3>Food Buddies</h3>
+                <p>The ones who share their pizza, steal your fries, and make every meal a party!</p>
+            </div>
+            
+            <div class="friend-card">
+                <div class="friend-emoji">🦄</div>
+                <h3>Unicorn Squad</h3>
+                <p>Those magical friends who bring sparkles and rainbows into your ordinary days!</p>
+            </div>
+        </section>
+        
+        <div class="message-area">
+            <h2 style="color: white; font-size: 2rem; margin-bottom: 20px;">Send Love to Your Friends! 💌</h2>
+            <input type="text" class="message-input" placeholder="Type a friendship message here..." id="friendshipMessage">
+            <button class="celebration-button" onclick="explodeCelebration()">🎊 CELEBRATE FRIENDSHIP! 🎊</button>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>✨ Made with 💖 for all the amazing friendships in the world! ✨</p>
+        <p>Keep spreading joy, laughter, and love! 🌈</p>
+    </footer>
 
+    <script>
+        // Continuous background animations
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = ['💖', '💝', '💕', '💗', '❤️', '🧡', '💛', '💚', '💙', '💜'][Math.floor(Math.random() * 10)];
+            heart.className = 'heart';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            
+            const container = document.createElement('div');
+            container.className = 'floating-hearts';
+            container.appendChild(heart);
+            document.body.appendChild(container);
+            
+            setTimeout(() => {
+                container.remove();
+            }, 3000);
+        }
+        
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = ['✨', '⭐', '🌟', '💫'][Math.floor(Math.random() * 4)];
+            sparkle.className = 'sparkle';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 2000);
+        }
+        
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd', '#ff1744', '#e91e63'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti-piece';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 2 + 's';
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    
+                    const container = document.createElement('div');
+                    container.className = 'confetti';
+                    container.appendChild(confetti);
+                    document.body.appendChild(container);
+                    
+                    setTimeout(() => container.remove(), 5000);
+                }, i * 50);
+            }
+        }
+        
+        function createFirework(x, y) {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd', '#ff1744', '#e91e63'];
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = x + 'px';
+            firework.style.top = y + 'px';
+            firework.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            const container = document.createElement('div');
+            container.className = 'friendship-celebration';
+            container.appendChild(firework);
+            document.body.appendChild(container);
+            
+            setTimeout(() => container.remove(), 2000);
+        }
+        
+        function createFloatingMessage(text, x, y) {
+            const floatingMsg = document.createElement('div');
+            floatingMsg.className = 'floating-message';
+            floatingMsg.textContent = text;
+            floatingMsg.style.left = x + 'px';
+            floatingMsg.style.top = y + 'px';
+            document.body.appendChild(floatingMsg);
+            
+            setTimeout(() => floatingMsg.remove(), 4000);
+        }
+        
+        function showThankYou() {
+            const thankYou = document.createElement('div');
+            thankYou.className = 'thank-you-animation';
+            thankYou.textContent = '🎉 THANK YOU FOR SPREADING LOVE! 🎉';
+            document.body.appendChild(thankYou);
+            
+            setTimeout(() => thankYou.remove(), 3000);
+        }
+        
+        function showMessageDisplay(message) {
+            const display = document.createElement('div');
+            display.className = 'message-display';
+            display.innerHTML = `
+                <h2>🌟 Your Friendship Message! 🌟</h2>
+                <div class="user-message">"${message}"</div>
+                <p style="color: white; font-size: 1.1rem; margin: 15px 0;">
+                    ✨ This beautiful message has been sent to the friendship universe! ✨<br>
+                    💖 All your friends can feel the love! 💖
+                </p>
+                <button class="close-button" onclick="this.parentElement.remove()">Close & Keep Celebrating! 🎊</button>
+            `;
+            document.body.appendChild(display);
+            
+            // Auto-remove after 8 seconds if not closed manually
+            setTimeout(() => {
+                if (display.parentElement) {
+                    display.remove();
+                }
+            }, 8000);
+        }
+        
+        function explodeCelebration() {
+            const message = document.getElementById('friendshipMessage').value;
+            
+            // Create massive confetti explosion
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => createConfetti(), i * 300);
+            }
+            
+            // Create heart shower
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => createFloatingHeart(), i * 80);
+            }
+            
+            // Create fireworks
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    createFirework(
+                        Math.random() * window.innerWidth,
+                        Math.random() * window.innerHeight * 0.7
+                    );
+                }, i * 200);
+            }
+            
+            // Show floating celebration messages
+            const celebrationMessages = [
+                '🎉 AMAZING!', '✨ FANTASTIC!', '💖 WONDERFUL!', '🌈 BEAUTIFUL!', 
+                '🎊 AWESOME!', '⭐ MAGICAL!', '💝 LOVELY!', '🦄 INCREDIBLE!'
+            ];
+            
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    createFloatingMessage(
+                        celebrationMessages[Math.floor(Math.random() * celebrationMessages.length)],
+                        Math.random() * (window.innerWidth - 200),
+                        Math.random() * (window.innerHeight * 0.8) + 100
+                    );
+                }, i * 500);
+            }
+            
+            // Show thank you animation
+            setTimeout(() => showThankYou(), 800);
+            
+            // Show message display if entered
+            if (message.trim()) {
+                setTimeout(() => {
+                    showMessageDisplay(message);
+                }, 1500);
+            } else {
+                // Show default celebration message
+                setTimeout(() => {
+                    showMessageDisplay("You just spread happiness and joy to the world! Keep being awesome! 🌟");
+                }, 1500);
+            }
+            
+            // Change button text temporarily
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '🎊 CELEBRATION ACTIVATED! 🎊';
+            button.style.animation = 'rainbow 0.5s ease infinite';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.animation = '';
+                button.disabled = false;
+            }, 4000);
+            
+            // Clear the input field with a nice animation
+            const input = document.getElementById('friendshipMessage');
+            input.style.transform = 'scale(1.1)';
+            input.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4)';
+            input.style.color = 'white';
+            
+            setTimeout(() => {
+                input.value = '';
+                input.placeholder = 'Your message was sent! Type another one! ✨';
+                input.style.transform = 'scale(1)';
+                input.style.background = 'rgba(255, 255, 255, 0.9)';
+                input.style.color = 'black';
+            }, 2000);
+            
+            setTimeout(() => {
+                input.placeholder = 'Type a friendship message here...';
+            }, 6000);
+        }
+        
+        // Mouse interaction effects
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.95) {
+                createSparkle(e.clientX, e.clientY);
+            }
+        });
+        
+        // Click celebration
+        document.addEventListener('click', (e) => {
+            createSparkle(e.clientX, e.clientY);
+            if (Math.random() > 0.7) {
+                createFloatingHeart();
+            }
+        });
+        
+        // Automatic heart generation
+        setInterval(createFloatingHeart, 2000);
+        
+        // Card hover effects
+        document.querySelectorAll('.friend-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const rect = card.getBoundingClientRect();
+                        createSparkle(
+                            rect.left + Math.random() * rect.width,
+                            rect.top + Math.random() * rect.height
+                        );
+                    }, i * 100);
+                }
+            });
+        });
+        
+        // Keyboard celebration
+        document.getElementById('friendshipMessage').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                explodeCelebration();
+            }
+        });
+        
+        // Add some initial celebration
+        setTimeout(() => {
+            createConfetti();
+        }, 1000);
+        
+        // Random celebration bursts
+        setInterval(() => {
+            if (Math.random() > 0.8) {
+                createFloatingHeart();
+                setTimeout(() => createSparkle(Math.random() * window.innerWidth, Math.random() * window.innerHeight), 500);
+            }
+        }, 3000);
+        
+        // Fun message rotation
+        const quotes = [
+            "Friends are the family we choose! 👨‍👩‍👧‍👦",
+            "Good friends are like stars - you don't always see them, but you know they're there! ⭐",
+            "A friend is someone who knows all about you and still loves you! 💝",
+            "Friends make the good times better and the hard times easier! 🌈",
+            "Life is better with friends by your side! 🤝"
+        ];
+        
+        let quoteIndex = 0;
+        setInterval(() => {
+            const quoteElement = document.querySelector('.friendship-quote');
+            quoteElement.style.opacity = '0';
+            setTimeout(() => {
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+                quoteElement.textContent = quotes[quoteIndex];
+                quoteElement.style.opacity = '1';
+            }, 500);
+        }, 8000);
+    </script>
+</body>
+</html>
